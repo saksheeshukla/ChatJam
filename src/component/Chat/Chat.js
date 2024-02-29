@@ -17,11 +17,12 @@ const Chat = () => {
     useEffect(() => {
         socket = socketIO(ENDPOINT, { transports: ['websocket'] });
         socket.on('connect', () => {
+            console.log(`i connected with socket id ${socket.id}`);
             setId(socket.id);
         });
 
         // Join the room on component mount
-        socket.emit('join-room', { room: window.room });
+        socket.emit('join-room', { room: localStorage.getItem('room') , user : localStorage.getItem('name')});
 
         socket.on('welcome', (data) => {
             setMessages([...messages, data]);
@@ -53,8 +54,9 @@ const Chat = () => {
 
     const send = () => {
         const message = document.getElementById('chatInput').value;
-        socket.emit('message', { message, room: window.room }); // Send message to the specified room
         document.getElementById('chatInput').value = "";
+        if(message=="") return;
+        socket.emit('message', { message, room: window.room }); // Send message to the specified room
     }
 
     return (

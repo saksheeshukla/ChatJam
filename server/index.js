@@ -18,16 +18,17 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 io.on("connection", (socket) => {
-    console.log("New connection");
+    // console.log("New connection");
 
     socket.on('join-room', ({ room, user }) => {
+        console.log(`User ${user} joined room ${room}`);
         socket.join(room);
         users[socket.id] = user; // Associate user with socket ID
         io.to(room).emit('welcome', { user: "Admin", message: `let's have a chat in Room, ${room}!` });
-        console.log(`User ${user} joined room ${room}`);
     });
 
     socket.on('message', ({ message, room }) => {
+        console.log(`${message} received in/for room ${room}`);
         if (room) {
             io.to(room).emit('sendMessage', { user: users[socket.id], message, id: socket.id });
         } else {

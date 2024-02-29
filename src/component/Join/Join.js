@@ -7,15 +7,12 @@ const Join = () => {
     const [room, setRoom] = useState("");
 
     const sendUser = () => {
-        // Not sure why you need these global variables, 
-        // but let's continue with your approach
-        window.user = name;
+        localStorage.setItem('name',name);
+        localStorage.setItem('room',room);
+        window.user = name; 
         window.room = room;
-        // Clear the input fields after saving the values
-        setName("");
-        setRoom("");
     }
-
+ 
     // Pass the room as a parameter to joinRoom
     const joinRoom = (roomId) => {
         // Here you would emit the event to join the room using socket.io
