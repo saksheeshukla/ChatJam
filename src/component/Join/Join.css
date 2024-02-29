@@ -1,0 +1,81 @@
+.JoinPage{
+    background-image: url("../../images/chatbotimage.jpg");
+    background-color: rgb(31, 29, 29);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.JoinContainer{
+
+    position: absolute;
+    top: 50%;
+    left: 20%; /* Adjust this value to your preference */
+    transform: translate(-50%, -50%);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.JoinContainer > img{
+    width: 10vmax;
+}
+.JoinContainer > h1{
+    
+    color: white;
+    font-size: 2.5vmax;
+    width: 20vmax;
+    border-bottom: 0.2vmax solid white;
+    text-align: center;
+    padding: 1vmax;
+    font-family: "Roboto";
+    box-sizing: border-box;
+}
+
+#joinInput{
+    width: 20vmax;
+    padding: 1vmax;
+    border: none;
+    outline: none;
+    font-size: 1.2vmax;
+    margin: 0.5vmax;
+    box-sizing: border-box;
+}
+#joinRoom{
+    width: 20vmax;
+    padding: 1vmax;
+    border: none;
+    outline: none;
+    font-size: 1.2vmax;
+    margin: 0.5vmax;
+    box-sizing: border-box;
+}
+.joinbtn{
+    width: 20vmax;
+    padding: 1vmax;
+    border: none;
+    margin: 0.8vmax;
+    color: white;
+    font-family: "Roboto";
+    outline: none;
+    font-size: 1.2vmax;
+   background-color: rgba(128, 0, 128, 0.98);
+   box-sizing: border-box;
+   transition: all 0.3s;
+   cursor: pointer;
+}
+.joinbtn:hover{
+    background-color: rgba(119, 0, 128, 0.542);
+}
+
+@media screen and (max-width: 600px) {
+    .JoinContainer{
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}
